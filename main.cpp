@@ -26,9 +26,9 @@ int main()
         "bit"
     };
 
-    linear_search(string_data);
-    insertion_sort(string_data);
-    binary_search(string_data);
+    cpp::linear_search(string_data);
+    // cpp::insertion_sort(string_data);
+    // cpp::binary_search(string_data);
 
     return 0;
 }
