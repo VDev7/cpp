@@ -18,11 +18,26 @@ bool is_sorted(const T a)
     if (is_debugging)
     {
         if (is_ascending) std::cout << "The container is sorted and ascending" << '\n';
-        if (is_descending) std::cout << "The container is sorted and descending" << '\n';
+        else if (is_descending) std::cout << "The container is sorted and descending" << '\n';
         else std::cout << "The a isn't sorted" << '\n';
     }
 
     return is_ascending || is_descending;
+}
+
+template <typename T>
+void print_vector(const std::vector<T> a)
+{
+    std::cout << "[";
+
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        std::cout << a[i];
+
+        if (i != a.size() - 1) std::cout << ", ";
+    }
+
+    std::cout << "]" << '\n';
 }
 
 template<typename T>
@@ -82,21 +97,6 @@ int binary_search(std::vector<T> a)
     return 0;
 }
 
-template <typename T>
-void print_vector(const std::vector<T> a)
-{
-    std::cout << "[";
-
-    for (size_t i = 0; i < a.size(); i++)
-    {
-        std::cout << a[i];
-
-        if (i != a.size() - 1) std::cout << ", ";
-    }
-
-    std::cout << "]" << '\n';
-}
-
 template<typename T>
 void bubble_sort(std::vector<T>& a)
 {
@@ -127,7 +127,41 @@ void bubble_sort(std::vector<T>& a)
 template <typename T>
 void selection_sort(std::vector<T>& a)
 {
+    int n = a.size();
 
+    for (int i = 0; i < n - 1; i++)
+    {
+        int min = i;
+
+        for (int j = i + 1; j < n; j++) if (a[j] < a[min]) min = j;
+
+        T temp = a[i];
+        a[i] = a[min];
+        a[min] = temp;
+
+        if (is_debugging) print_vector(a);
+    }
+}
+
+template <typename T>
+void insertion_sort(std::vector<T>& a)
+{
+    int n = a.size();
+
+    for(int i = 1; i < n; i++)
+    {
+        T key = a[i];
+        int j = i - 1;
+
+        while (j >= 0 && a[j] > key)
+        {
+            a[j + 1] = a[j];
+            --j;
+        }
+
+        a[j + i] = key;
+        if (is_debugging) print_vector(a);
+    }
 }
 
 #endif

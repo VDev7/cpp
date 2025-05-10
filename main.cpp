@@ -27,7 +27,7 @@ int main()
     };
 
     linear_search(string_data);
-    bubble_sort(string_data);
+    insertion_sort(string_data);
     binary_search(string_data);
 
     return 0;
