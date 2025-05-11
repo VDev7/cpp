@@ -1,7 +1,4 @@
 #include "algorithm.hpp"
-#include <random>
-
-bool is_debugging = 1;
 
 template <typename T>
 bool cpp::is_sorted(const T a)
@@ -13,13 +10,6 @@ bool cpp::is_sorted(const T a)
     {
         if (a[i] > a[i + 1]) is_ascending = 0;
         if (a[i] < a[i + 1]) is_descending = 0;
-    }
-
-    if (is_debugging)
-    {
-        if (is_ascending) std::cout << "The container is sorted and ascending" << '\n';
-        else if (is_descending) std::cout << "The container is sorted and descending" << '\n';
-        else std::cout << "The a isn't sorted" << '\n';
     }
 
     return is_ascending || is_descending;
@@ -134,8 +124,6 @@ void cpp::bubble_sort(std::vector<T>& a)
                 a[j + 1] = temp;
 
                 is_swapped = 1;
-
-                if (is_debugging) print_vector(a);
             }
         }
 
@@ -157,8 +145,6 @@ void cpp::selection_sort(std::vector<T>& a)
         T temp = a[i];
         a[i] = a[min];
         a[min] = temp;
-
-        if (is_debugging) print_vector(a);
     }
 }
 
@@ -175,10 +161,9 @@ void cpp::insertion_sort(std::vector<T>& a)
         while (j >= 0 && a[j] > key)
         {
             a[j + 1] = a[j];
-            --j;
+            j++;
         }
 
         a[j + i] = key;
-        if (is_debugging) print_vector(a);
     }
 }
