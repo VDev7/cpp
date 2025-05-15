@@ -18,13 +18,6 @@ namespace cpp
             if (a[i] < a[i + 1]) is_descending = 0;
         }
     
-        if (is_debugging)
-        {
-            if (is_ascending) std::cout << "The container is sorted and ascending" << '\n';
-            else if (is_descending) std::cout << "The container is sorted and descending" << '\n';
-            else std::cout << "The a isn't sorted" << '\n';
-        }
-    
         return is_ascending || is_descending;
     }
 
@@ -118,8 +111,6 @@ namespace cpp
                     a[j + 1] = temp;
     
                     is_swapped = 1;
-    
-                    if (is_debugging) print_vector(a);
                 }
             }
     
@@ -141,8 +132,6 @@ namespace cpp
             T temp = a[i];
             a[i] = a[min];
             a[min] = temp;
-    
-            if (is_debugging) print_vector(a);
         }
     }
 
@@ -163,7 +152,6 @@ namespace cpp
             }
     
             a[j + 1] = key;
-            if (is_debugging) print_vector(a);
         }
     }
 }
