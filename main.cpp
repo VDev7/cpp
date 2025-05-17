@@ -1,5 +1,7 @@
 #include "algorithm.hpp"
 
+#include <string>
+
 int main()
 {
     std::vector<int> data = {4, 7, 1, 3};
@@ -27,8 +29,8 @@ int main()
     };
 
     cpp::linear_search(string_data);
-    // cpp::insertion_sort(string_data);
-    // cpp::binary_search(string_data);
+    cpp::quick_sort(string_data);
+    cpp::binary_search(string_data);
 
     return 0;
 }
